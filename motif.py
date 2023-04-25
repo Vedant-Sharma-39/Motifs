@@ -54,11 +54,10 @@ class SiteModel:
                 populations_pred[site-1] = count
             self.pop_history_pred.append(populations_pred)
 
-
 # Define the model parameters and run the simulation
-k, r_prey, e_pred, d_prey = 10, 2, 0.5, 0.5
-mod = SiteModel(n_sites=10, initial_pop=(30, 5), update_pop=update(r_prey, d_prey, e_pred, d_pred))
-mod.iterate(100)
+r_prey, d_prey, e_pred, d_pred = 1.5, 0.8, 2, 0.5
+mod = SiteModel(n_sites=50, initial_pop=(300, 5), update_pop=update(r_prey, d_prey, e_pred, d_pred))
+mod.iterate(15)
 
 # Create the plot
 fig, ax = plt.subplots()
@@ -70,7 +69,4 @@ ax.set_title(f'r_prey: {r_prey:.1f}, d_prey: {d_prey:.1f}')
 ax.legend()
 plt.tight_layout()
 
-# Display the plot on Streamlit
-st.pyplot(fig)
-
-
+    # Display the plot on Streamlit
